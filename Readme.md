@@ -108,6 +108,82 @@ code -> "A1"+ 1byte
 
     ![alt text](<assets/Screenshot 2025-12-22 at 8.33.44 PM.png>)
 
+# 11. ACID property
+
+   1. Atomocity - All operations in a transaction succeed or none do.
+   2. Consistency - A transaction moves the database from one valid state to another. (Ensures data follows rules, constraints, and business logic.)
+   3. Isolation - Transactions do not interfere with each other. (Prevents dirty reads, race conditions, and inconsistent data.)
+   4. Durability - Once committed, data is permanently saved. (Protects data even after crashes or power failures.) by logs, caching etc
+
+# 12. Dirty Reads
+
+  Transcrtion A reads data , where other transaction B modifying that data but transaction B is not committed , it went rollback
+
+  let check with example
+
+  Transaction A  -> AMOUNT - 500
+
+  TRANSACTION A
+  -----------------
+
+  START TRANSACTION;
+
+  UPDATE ORDERS SET AMOUNT = 250 WHERE order_id = 1;  // UN COMMITTED
+
+
+  TRANSACTION B
+  --------------
+
+  SELECT * FROM ORDERS WHERE order_id = 1;
+
+  <!-- AMOUNT -> 250 -->
+
+
+  TRANSACTION A
+  -----------------
+
+  ROLLBACK;
+
+  TRANSACTION B perform dirty read , AMOUNT = 500, TRANSACTION B GOT AMOUNT = 250
+
+
+  TO PREVENT
+  1. Read committed
+  2. serilizable
+  3. repeatedly read
+
+# 13. Race condition
+
+  1. Using transaction
+
+    START TRANSACTION;
+
+     UPDATE CUSTOMER SET AMOUNT = 1000 WHERE ID = 1;
+
+    COMMIT;
+
+  2. Using row lock
+
+    START TRANSACTION;
+
+    SELECT * FROM ORDER WHERE CUSTOMER_ID = 1 FOR UPDATE;
+
+    UPDATE CUSTOMER SET AMOUNT = 1000 WHERE ID = 1;
+
+    COMMIT;
+
+  3. using version LOCK
+
+     UPDATE CUSTOMER SET AMOUNT = 1000 AND VERSION = VERSION + 1 WHERE ID = 1 AND VERSION = 2;
+
+  4. Atomic Updates -> single query no race condtions
+
+     UPDATE CUSTOMER SET AMOUNT = 1000 WHERE ID = 1;
+
+
+  
+
+
 
 
 
