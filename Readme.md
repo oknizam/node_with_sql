@@ -108,11 +108,20 @@ code -> "A1"+ 1byte
 
     ![alt text](<assets/Screenshot 2025-12-22 at 8.33.44 PM.png>)
 
-# 11. ACID property
+# 11. ACID property (acid applied  with transaction, without transaction not fully applied)
 
    1. Atomocity - All operations in a transaction succeed or none do.
+
+        START TRANSACTION;
+        UPDATE a SET balance = balance - 100 WHERE id = 1;
+        UPDATE b SET balance = balance + 100 WHERE id = 2;
+        COMMIT;
+
    2. Consistency - A transaction moves the database from one valid state to another. (Ensures data follows rules, constraints, and business logic.)
+      Constraints: PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK
+
    3. Isolation - Transactions do not interfere with each other. (Prevents dirty reads, race conditions, and inconsistent data.)
+
    4. Durability - Once committed, data is permanently saved. (Protects data even after crashes or power failures.) by logs, caching etc
 
 # 12. Dirty Reads
