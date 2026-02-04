@@ -1,0 +1,27 @@
+tables
+- > customers -> custmer_id (primary key), customer_name, age
+-> orders -> order_id (primary_key) , product_name, customer_id (foreign key), amount
+
+1. Inner join
+
+select c.custmer_id, c.customer_name, c.age , o.order_id, o.amount from orders o JOIN  customers c where c.custmer_id = o.custmer_id;
+
+-> matching values in both tables
+
+2. Left join
+
+select c.custmer_id, c.customer_name, c.age , o.order_id, o.amount from orders o LFET JOIN  customers c where c.custmer_id = o.custmer_id;
+
+-> all values in left table and matching values in right table
+
+3. right join
+
+select c.custmer_id, c.customer_name, c.age , o.order_id, o.amount from orders o RIGHT JOIN  customers c where c.custmer_id = o.custmer_id;
+
+-> all values in right table and matching values in left table
+
+4. Full outer join
+
+select c.custmer_id, c.customer_name, c.age , o.order_id, o.amount from orders o LFET JOIN  customers c where c.custmer_id = o.custmer_id union select c.custmer_id, c.customer_name, c.age , o.order_id, o.amount from orders o RIGHT JOIN  customers c where c.custmer_id = o.custmer_id ;
+
+all values in left and all values inright table

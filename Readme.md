@@ -29,6 +29,7 @@ Foreign key can be null
 name itlsef suggest unique
 can be null
 we can have mutiple unique keys
+example: email, phone number
 
 # 8. CHAR vs VARCHAR
 
@@ -82,23 +83,25 @@ code -> "A1"+ 1byte
 
 7. We have limits for indexing it depends on mysql
 
+8. banlenced tree -> perform search based on range
+
 
 # 10. Joins
   ![alt text](<assets/Screenshot 2025-12-22 at 8.23.48 PM.png>)
    1. Inner join
     matching data in both table
 
-    ![alt text](<assets/Screenshot 2025-12-22 at 8.26.42 PM.png>)
+  ![alt text](<assets/Screenshot 2025-12-22 at 8.26.42 PM.png>)
 
    2. Left Join
     All data from left table and matching data form right table , it can have Null values
 
-    ![alt text](<assets/Screenshot 2025-12-22 at 8.32.05 PM.png>)
+  ![alt text](<assets/Screenshot 2025-12-22 at 8.32.05 PM.png>)
 
    3. Right Join
     All data from Right table and matching data form left table , it can have Null values
 
-    ![alt text](<assets/Screenshot 2025-12-22 at 8.33.06 PM.png>)
+  ![alt text](<assets/Screenshot 2025-12-22 at 8.33.06 PM.png>)
   
    4. Full Outer join 
     All data from Right table and all data form left table , it can have Null values
@@ -106,7 +109,7 @@ code -> "A1"+ 1byte
     left + union + right
 
 
-    ![alt text](<assets/Screenshot 2025-12-22 at 8.33.44 PM.png>)
+  ![alt text](<assets/Screenshot 2025-12-22 at 8.33.44 PM.png>)
 
 # 11. ACID property (acid applied  with transaction, without transaction not fully applied)
 
@@ -119,6 +122,9 @@ code -> "A1"+ 1byte
 
    2. Consistency - A transaction moves the database from one valid state to another. (Ensures data follows rules, constraints, and business logic.)
       Constraints: PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK
+
+    1. rules are followed before starting transaction means check constraints
+    2. rules are followed after transaction means check constracints after transaction
 
    3. Isolation - Transactions do not interfere with each other. (Prevents dirty reads, race conditions, and inconsistent data.)
 
@@ -189,9 +195,92 @@ code -> "A1"+ 1byte
 
      UPDATE CUSTOMER SET AMOUNT = 1000 WHERE ID = 1;
 
-
   
+# 14. Relational database
 
+  1. Store and mange data using tabels
+  2. table has rows(records) and columns (fields)
+  3. tables are connected to each other by keys (Foreign keys)
+  4. relational databases , Mysql, psql, sql lite, oracle
+  5. Fixed schema 
+  6. uses sql to query database
+  7. fixed schema means structure is predefined and strict, we can add new field to table , new type of value to existing field
+  8. Create table user (
+    id number,
+    name varchar(50),
+    age number
+  );
+
+  9. insert into user(id,name, age, gender)
+      values (1, "Nizam",27,"male"); this is nit allowed because table is created with diffrent schema
+
+
+# 15. why we use Relational database
+  1. structured data
+  2. strong data consistency (ACID propoties)
+  3. easy to query with sql
+
+
+# 16. when we need relational database
+
+  1. structred data
+  2. data consistency (ACID)
+  3. relationshipl between tables
+  4. e-commerce applications 
+    1. payments table
+    2. orders table
+    3. users table
+    4. products table
+  5. banking systems
+  6. ticketing systems
+
+# 17. when we need no sql 
+
+  1. Data structure change
+  2. Huge scale and high write traffic
+  3. easy to horizontal scaling
+  4. fatsre development
+  5. majorely used 
+    1. message application
+    2. Analytics
+    3. notifications
+    4. acticity logs
+
+# 18. Horizontal scaling in relational Database is painful
+
+  1. horizontal scling means adding new machines and splitting data betweeen doffrent machines, where as vertical scaling updating existing machine
+  2. why horizontal scaling is painful because relational DB will 
+    1. maintain consistency in data (ACID)
+    2. relation bewteen tables
+    3. transactions
+  it is difficult to maintain consistency , relations of do horizontal sclaing
+
+  3. we can do Horizontal scaling
+    1. creating replicas
+      1. primary -> write allways on primary
+      2. relicas -> read from replicas
+
+    2. write still goes to one
+    3. read lag (consistency)
+  
+  4. sharding
+    
+    shard1 -> 1 - 1m
+    shard2 -> 1m - 2m
+    shard3 -> 2m - 3m
+
+    1. each shard seperate database
+    2. read and write speed
+    3. joins difficult
+
+
+# 19. Transaction
+    Group of database operations
+
+    Begin;
+    INSERT INTO orders (id, user_id, amount) VALUES (1, 10, 500);
+    INSERT INTO payments (order_id, status) VALUES (1, 'SUCCESS');
+    commit;
 
 
 
