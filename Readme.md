@@ -283,11 +283,83 @@ code -> "A1"+ 1byte
     commit;
 
 
+# 20. Diffrence between Psql vs mysql
+
+1. Both are open source 
+2. uses standard sql
+3. Mysql speed and fast comapre to psql, great for read heavy web apps, fast for simple reads
+4. pql is more advanced used for complex queries
+5. Project is simple and performence-focused choose mysql, project is scalable, complex and advanced choose psql
+6. Mysql is simple and light weight, faster for heavy-read applications and psql complex queries
+7. mysql we can scale horizontal using replicas
+8. psql vertically scales well
+9. psql easy to perform search on json data means column which stores json data and it suuports JSONB
+10. psql supports indexing json also
+11. mysql json indexing is limited
+12. Psql supports two json data types JSON and JSONB
+13. JSON (Text storage)
+    1. stored exactly as text
+    2. every time query json data -> psql parses it
+    3. key order preserved
+    
+
+14. JSONB (stored in binary format)
+    1. stored as binary data
+    2. parsed only at insert
+    3. faster query
+    4. support indexing
+    5. key order not preserved
 
 
+# 21. Bearer token vs cookies vs basic
+
+  1. Bearer token
+    1. access token used in api
+    2. sent in http header (Authorization: Bearer <token>)
+    3. session less used with jwt
+
+  2. Cookies
+    1. small piece of data stored by browser
+    2. autometically sent with every request with same domain
+    3. used for session and authentication
+
+  3. Basic
+
+    1. used when ur authenticating to application 
+    2. basically passing username and password in encryption using base64 algo
+  
+  Both are used for 
+  1. Authentication -> who you are -> authenticate application
+  2. authorization -> you have access to following -> permissions
+
+  what ever stored in cookies for that domain sent autometically to each n/w request
+   works
+  FE domain => app.example.com
+  BE domain =>  app.example.com
 
 
+  # 22. Commonly used API status codes
 
+  1. 2XX -> success
+    1. 200 -> GET, PUT, PATCH
+    2. 201 -> Create new resource -> POST 
+    3. 204 -> success no response , DELETE
+
+  2. 4xx -> client error
+    1. 400 -> missing fields -> bad request
+    2. 401 -> Unauthorized ->not authenticated
+    3. 403 -> Forbidden -> not allowed , no permission
+    4. 404 -> Resource not found -> wrong id
+    5. 409 -> conflict in data -> duplicate entry
+    6. 429 -> too many request , rate limiter
+
+
+  3. 5xx -> server errors
+
+    1. 500 -> server crash
+    2. 502 -> bad gateway -> service failure -> microservice failure
+    3. 503 -> service unreachable -> load 
+    4. 504 -> gate way timeout -> not responding
 
 
 
