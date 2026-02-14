@@ -338,7 +338,7 @@ code -> "A1"+ 1byte
   BE domain =>  app.example.com
 
 
-  # 22. Commonly used API status codes
+ # 22. Commonly used API status codes
 
   1. 2XX -> success
     1. 200 -> GET, PUT, PATCH
@@ -360,6 +360,165 @@ code -> "A1"+ 1byte
     2. 502 -> bad gateway -> service failure -> microservice failure
     3. 503 -> service unreachable -> load 
     4. 504 -> gate way timeout -> not responding
+
+
+# 23. Inner join and cross join
+
+  1. Inner Join
+     Return matching rows based on condtions
+
+  2. Cross join
+     Return all possible combinations of rows
+
+     tables:
+     A -> 3 rows
+     B -> 4 rows
+     Cross join return A * B => 3 * 4 => 12 rows
+
+     every row of A displyed with every row B
+
+  3. Outer join 
+
+    returns all rows in table A and table B
+
+    tables:
+     A -> 3 rows
+     B -> 4 rows
+    Cross join return A + B => 3 + 4 => 7 rows
+
+
+
+# 24. Indexing 
+
+  1. Without index full table scan
+  2. with index , dirctly jump to matching rows
+
+  3. Single index
+   syntax:
+   create index idx_name on customers(customer_name);
+
+   -> Instead of scanning entire table, directly jump to specifcic index
+
+  4. composite index
+   sytanx: 
+
+   create index idx_customer_name_city on customers(customer_name, city);
+
+    1. where customer_name = "nizam"; idenxing works
+    2. where customer_name = "nizam" and city="davanagere"; idenxing works
+    3. where city="davanagere"; idenxing not works, because order matters in composite index
+  
+  5. indexing in like clause
+
+    1. prefix works fname LIKE "n%" starts with
+    2. fname LIKE "%n" end with index not works
+    3. fname LIKE "%na%" contains not work
+
+  
+
+# 25. Docker
+  docker package ur application with all configuration
+
+  provide one enviornament where it conatins app, witk all configuration to run that app, those configurations will not change for one machine to another, so that we can't say project is running on my machine but not on urs
+
+  it conatins
+  1. Image -> blue print of project, configs everything like class, read only
+  2. container -> blue print + running state, instnce of image
+
+# 26. Kubarnetes
+
+  developed by google
+  container orchastration platform
+
+  1. docker = create containers
+  2. Kubarnetes = manages containers
+
+  3. auto scaling
+  4. load balance
+  5. auto healing (restart crashed containers)
+  6. deployment managemet
+
+
+# 27. Deployment
+
+  1. Initially before aws  project was created locallly and developed
+  2. to deploye we have to setup our own server, dump application there -> that machine will have one static ip, internet will be availbale, and also machine should active 24*7 
+  3. purchase one domain like https://abc.com -> route this domain to static ip
+  4. After aws - it provides cloud access
+  5. where employees instead of having own server or renting others server simply they can create account
+  6. create vmachine in aws cloud deploy projects their
+
+  7. Cloud Native 
+    1. Deploy in single machine
+    2. we can use redis
+    3. cloud front cdn
+    4. redis
+    5. load balancing 
+    6. revere proxy
+    7. everything is available just we need to do configuration
+
+  8. Still we have problem here , works on my machine
+    1. need to configure evrything in aws as well , what we have in local
+    2. local is running windows
+    3. where aws running linux  
+    4. Virtualisation -> run windows, linux but these are very hevy because entire OS included in this
+    5. Containeraisation (Docker) -> kind of Virtualisation but light weight
+    6. google using containers from begining
+    7. managing containers is difficult
+
+  9. Containers
+    1. Currently we have two containers
+    2. if traffic increases , need to scale containers by adding new 
+    3. if traffic is decreasing we have to remove additional containers   
+    4. container crashes -> restart
+    5. containers monitor
+    6. idea is hire developer who is activeling looking on containers we call it as containers orchestration
+    7. Google created in house soltion to automate containers orchestration by introducing google BORG 
+    8. Rewrite BORG make open source and named KUBARNETES
+    9. Donated KUBARNETES to CNCF
+    10. word taken Helsman who manges ship 
+    11. k8s
+
+  10. AWS ECS (Elastic container service)
+    1. same as Kubarnetes
+    2. vendor lock In
+    3. configured as per AWS
+    4. if i want to shift other Cloud service , again need to write everything
+
+  11. Kubarnetes are generic we can easily shift from one clusde to another clude service
+
+
+# 28. How KUBARNETES works
+
+  1. Physical machine (local machine, aws virtal machine, microsft azure machine)
+  2. Control plane , intsall below
+    1. API server -> expose , configuration passes to controller , user are talking
+    2. Controller -> run
+    3. Scheduler
+    4. etcd  -> database to store data (key,value)
+    5. worker node another physical machine -> actual application (container) run
+    6. minimum 2 worker node
+    7. API sever -> controller -> etcd -> repeat  
+    
+  3. worker node
+    1. kubelet which connected to api server of control plane
+    2. kublet manage pods or contaners
+    3. kube proxy redirect users request to worker nodes
+
+  4. please run two contaners for ngnix
+    1. send request to API server of control plane
+    2. authentication check
+    3. API server send request to controller need two containers
+    4. COntroller create two pods 
+    5. pods mean contaners
+
+
+  5. scheduler assign pods to worker node or assign worker nodes
+  6. Cloud controll mangers ()
+    1. load balancer 
+    2. CCM dynamic component to create load balancer (aws, GCP, microsoft)
+
+
 
 
 
