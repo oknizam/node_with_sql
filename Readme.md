@@ -518,6 +518,39 @@ code -> "A1"+ 1byte
     1. load balancer 
     2. CCM dynamic component to create load balancer (aws, GCP, microsoft)
 
+# 29 Github Actions
+
+1. github is hosted version control system
+
+2. without git hub project will copied to server where code is actully get deployed 
+
+3. git hub provide features
+
+4. we give some instrcution to github
+  1. whenever we push our code to develop or main  branch
+  2. server ssh connect to server where we deploy
+  3. cd home/app
+  4. take latest pull
+  5. all these we write in yml
+
+5. Deploying node steps
+
+  1. Create simple node server
+  2. DockerFile
+    1. we use alpine image because they are light weight
+    2. why we use alpine is they are light weight, basically when we create container we take ngnix, node, python , ubuntu images
+    3. but alpine are light weight compare to these useful in CI/CD pipeline
+
+  3. docker-compose.yml
+    1. to run multiple containers
+    2. exmple if we have 
+      1. frontend
+      2. backend
+      3. database
+      Instead of running eaxh seperately we can run in one command
+
+
+
 
 
 
