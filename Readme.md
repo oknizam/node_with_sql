@@ -552,7 +552,14 @@ code -> "A1"+ 1byte
 
 
 
+# 30. KAFKA
 
+# 31. REDIS
 
+# 32. API gateway
+
+# 33. LOAD balancer
+
+# 34. Unit testing
 
 
