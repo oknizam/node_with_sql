@@ -554,6 +554,8 @@ code -> "A1"+ 1byte
 
 # 30. KAFKA
 
+Check kafak readme
+
 # 31. REDIS
 
 # 32. API gateway
