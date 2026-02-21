@@ -45,3 +45,7 @@ this is not valid solution
   9. client verify signature using lets encrypt public key  and servre public key 
   10. generate SECRATE KEY send it to server 
   11. send encryption data
+
+  ![alt text](<assets/Screenshot 2026-02-21 at 3.28.25 PM.png>)
+
+  
