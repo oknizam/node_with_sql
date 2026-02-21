@@ -558,10 +558,20 @@ Check kafak readme
 
 # 31. REDIS
 
-# 32. API gateway
+# 32. API gateway vs load balancer vs reverse proxy
 
 # 33. LOAD balancer
 
 # 34. Unit testing
+
+# 35. Cors
+
+# 36. XSS
+
+# 37. Improve performece images FE
+
+# 38. SSL
+
+# 39 CAPTCHA
 
 
