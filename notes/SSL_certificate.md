@@ -29,7 +29,7 @@ this is not valid solution
     4. He can encrypt data in middle data get leak
 
 
-![alt text](assets/image-1.png)
+![alt text](../assets/image-1.png)
 
 
 5. To solve this MMA proxy problem we use SSL certificate
@@ -46,6 +46,6 @@ this is not valid solution
   10. generate SECRATE KEY send it to server 
   11. send encryption data
 
-  ![alt text](<assets/Screenshot 2026-02-21 at 3.28.25 PM.png>)
+  ![alt text](<../assets/Screenshot 2026-02-21 at 3.28.25 PM.png>)
 
   

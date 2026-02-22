@@ -94,7 +94,7 @@ Kafka is event driven -> store data -> emit data
 
 # 9. Consumer groups
 
-![alt text](assets/Kafka_with_consumer_groups.png)
+![alt text](../assets/Kafka_with_consumer_groups.png)
 
   1. What they will do we have two consumer groups 1 and 2
   2. Consumer group 1 having 3 consumers

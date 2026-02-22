@@ -42,4 +42,4 @@
   3. Caching static data 
 
 
-![alt text](assets/APIGateway_LB_reverseProxy.png)
+![alt text](../assets/APIGateway_LB_reverseProxy.png)

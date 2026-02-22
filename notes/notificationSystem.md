@@ -25,7 +25,7 @@
   3. Queue will send request to email service provider in batch like 25 request per second so no mail request not get missed , this is solving problem of rate limiting at mail service provider
   4. if mail service goes down, mail request put back again into queue so that when service up it will send request again
 
-  ![alt text](<assets/Screenshot 2026-02-22 at 1.50.57 PM.png>) 
+  ![alt text](<../assets/Screenshot 2026-02-22 at 1.50.57 PM.png>) 
 
 
 5. Enqueue and DLQ (Dead letter queue)
@@ -54,10 +54,10 @@
   3. User post -> In app notification  sendToInAppQueue
   4. user request -> push notification -> firebase -> sendToPushNotificationQueue
 
-![alt text](<assets/Screenshot 2026-02-22 at 2.33.51 PM.png>)
+![alt text](<../assets/Screenshot 2026-02-22 at 2.33.51 PM.png>)
 
 
-  ![alt text](<assets/Screenshot 2026-02-22 at 2.33.38 PM.png>)
+  ![alt text](<../assets/Screenshot 2026-02-22 at 2.33.38 PM.png>)
 
 7. SendToSNS (simple notification service) (emit notification) FAN out Architecture
 
@@ -73,6 +73,6 @@
   1. user active in app - no need to send
   2. user not subscribed to notification
 
-  ![alt text](image-1.png)
+  ![alt text](../assets/image-1.png)
 
 
