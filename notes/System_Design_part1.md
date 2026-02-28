@@ -187,3 +187,18 @@
 
 
 
+36. DNS  (Domain name system)
+
+    1. when we enter website in server which is in simple english word
+    2. But where we are deploying our code which is a some server ip 10.10.1.100
+    3. I have purchesed a domain called oknizamdev.com 
+    4. We need to map our domain to ip 10.10.1.100
+    5. Mapping will done by DNS
+    6. It is works like teplephone directory
+
+
+37. ISP (Internet service provider)
+
+    1. connect our machine to gloabal internet
+    2. Commonly used internet service providers in india
+    3. Airtel, BSNL, Jio
