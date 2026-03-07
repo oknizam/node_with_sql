@@ -576,3 +576,18 @@ Check kafak readme
 
 # 40. Notification system - system design
 
+# 41. workers
+
+   1. workers are seperate threads in nodejs
+
+     const worker = require("worker_thred")
+
+   2. Child process
+
+    const {spawn,exec,fork,} = require("child_process")
+
+    1. spawn -> lareger outputs streaming data runs for commands, not file
+    2. exec -> smaller outputs one time o/p data runs for commands, not file
+    3. fork -> runs as seprate worker js file
+
+
