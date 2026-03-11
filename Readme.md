@@ -51,6 +51,9 @@ code -> "A1"+ 1byte
 
 2. To create index -> there will be a new `lookup table` is created which maintain index id
 
+  1. no lookup table seperate structure is created (b-tree)
+  2. it stores indexed column value and row pointer
+
 3. example: we know data is stored in disc (512GB) 
 
     Disc is devided into sectors 
@@ -591,3 +594,74 @@ Check kafak readme
     3. fork -> runs as seprate worker js file
 
 
+
+# 42. SSL certificate
+
+    1. client  -> server -> exchange hello message
+    2. server -> (private, public) -> public key + ssl -> client
+    3. client verify ssl with service provider
+    4. generate random session key 
+    5. client encrypt data (random session key + public key) -> send  -> server
+    6. server using private key decrypt data
+
+
+# 43. Views
+
+ 1. Virtual table it actully does not store data
+ 2. It stores query
+ 3. used for security reasons hide sensitive columns
+ 4. Reusablity -> same query no need to writ again
+ 5. It shows data from one or more table
+
+ syntax -> 
+
+ create view  customer_view as select customer_name from customers;
+
+
+ # 44. Temporary table
+
+  1. This will be created for session/ connection present for user
+  2. If connection/session end autometically table get deleted
+  3. it for that current user
+
+
+  syntax: 
+  create temporary table (
+    id int auto_increment ,
+    name varchar(50)
+  )
+
+# 45. trigger
+
+  1. Piece of code which autometically triggred when some evnt occurs
+  2. Events
+    1. Insert
+    2. delete
+    3. update
+  3. Types
+    1. before
+    2. after
+
+# 46. procedures
+
+stored procedures are set of sql statements which are get executed when they get called
+
+  1.  create sytax:
+
+      create procedure getUsers();
+      begin
+        select * from users;
+      end;
+
+  2. call syntax:
+
+    call getUsers();
+
+
+# 47. where and having cluse
+
+  1. where filter rows
+  2. used before group by
+
+  1. having used to filter grouped data
+  2. used after group by
