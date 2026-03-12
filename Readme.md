@@ -665,3 +665,26 @@ stored procedures are set of sql statements which are get executed when they get
 
   1. having used to filter grouped data
   2. used after group by
+
+
+# 48. query to get second higest salary
+
+1. select max(salary) from employee where salary < (select max(salary) from employee);
+
+2. select salary from employee order by desc salary limit 1 offset 1;
+
+
+# 49. find duplicate records
+
+
+select count(*),dept_id from employee group by dept_id having count(*)>1;
+
+
+# 50. find number of employees in dept
+
+select count(*),dept_id from employee group by dept_id;
+
+# 51. find last three records
+
+
+select * from emaployee order by id desc limit 3;
