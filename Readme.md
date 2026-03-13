@@ -688,3 +688,12 @@ select count(*),dept_id from employee group by dept_id;
 
 
 select * from emaployee order by id desc limit 3;
+
+
+# 52. react why we use  useMemo is debounce
+
+  1. every time set text
+  2. componenet re renders
+  3. debounce function also get called
+  4. it will loss refrence
+  5. so we will use
