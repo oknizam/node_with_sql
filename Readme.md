@@ -697,3 +697,106 @@ select * from emaployee order by id desc limit 3;
   3. debounce function also get called
   4. it will loss refrence
   5. so we will use
+
+
+# 53. what is nodejs
+
+node js is javascript runtime enviornament built on v8 engine , used to run javascript out of browser, it is single threaded,  non-blocking I/O, handles async operations
+  1. event driven
+  2. file system support
+  3. good for real time applications
+
+# 54. Diffrence between node js and browser js
+
+  1. nodejs has file system support, where browser js not
+  2. node js has node apis where as browser js uses web apis (location,fetch, localstorage, session)
+  3. node js has globalThis, where it has window objects
+
+
+# 55. Why node js is single threaded
+
+  It runs on main thread which only thread used to run all synchronous operations in node, rest I/O, async operations, timers are executed in thread pool
+
+# 56. Event loop
+
+  Eventloop is made of below components
+
+  1. call stack
+  2. heap memory
+  3. micro task queue -> (process.nextTick queue, promise queue)
+  4. macro task queue -> (timer queue, i/o queue, check queue (setImmediated), close Queue)
+
+  1. First code will be executed line by line
+  2. If synchronous code found run in main thread (call stack)
+  3. asynchronous code promise,process.nextTick, timer, i/o operations will be moved to libuv which is written in c launguage
+  4. node to libuv binding will be done by c++ 
+  5. libuv consist of thread pool 
+  6. Initially (4 threds) we can increase process.env.threadpoolsize which is again depends on ur system cpu cores
+  7. Network request will not be executed in thread pool, they are executed in OS kernel, libuv register n/w call with some socket OS, OS observers this n/w call if get completed notify libuv , it will return callbcak to Eventloop
+  8. In mac this algorithem we call it as KQueue
+
+
+# 57. Blocking vs non - blocking
+
+  we know that nodejs is single thread means code run on only main thread
+
+  1. lets take example of file read
+
+    const data = fs.readFileSync("sample.txt"); // blocking code
+
+  2. non blocking code 
+
+    fs.readFile("sample.txt",(err,data)=>{
+      console.log("data",err)
+    })
+
+
+# 58. NPM (Node package maneger) and NPX (node package execute)
+
+ 1. used to run and packages, install dependencies
+
+ 2. npx used to excute packages
+
+ 3. package.json -> used to maintain project version, name, scripts, dependecies , dev dependencies(jest, eslint etc)
+
+ 4. package-lock.json it maintain exact version of dependencies which is required in deployment
+
+
+# 59. callback hell 
+
+  1. callback is function which takes another function as argument execute it
+  2. callback hell is lets have 4 functions each function dependent on another function execution
+  3. to solve we use promise, async await
+  4. using callback error handling is difficult
+
+
+# 60.  process.nextTick vs setTimeout vs setImmediated
+
+  1. process.nextTick before event loop
+  2. after time resolved , if no task present in microtask queue 
+  3. after I/O queue
+
+# 61. core modules
+
+  1. fs
+  2. path
+  3. http
+  4. OS
+  5. Events
+
+# 62. express
+
+  why we use express is 
+
+  1. support routing
+  2. middleware
+  3. Simple api creation
+
+
+# 63. Error handling in middleware
+
+  function middleware(err,req,res,next){
+    if(err){
+      return res.status(500).json({message:"error "+err.message})
+    }
+  }
