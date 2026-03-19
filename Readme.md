@@ -800,3 +800,155 @@ node js is javascript runtime enviornament built on v8 engine , used to run java
       return res.status(500).json({message:"error "+err.message})
     }
   }
+
+# 64. require and import
+
+  1. require is commonjs modules, where import is es5
+  2. require is synchronous , import is asynchronous
+
+
+# 65. Callback hell vs promises vs asyn await
+
+1. callback hell
+getUser(id,(user)=>{
+    getOrders(user.id,(orders)=>{
+        getOrderDetails(orders[0].id,(details)=>{
+            console.log(details)
+        })
+    })
+})
+
+
+2. promises 
+
+getUser(userId)
+.then((user)=>{
+    return getOrders(users.id)
+})
+.then((orders)=>{
+    return getDetails(orders[0].id)
+})
+.then((details)=>{
+    console.log(details)
+})
+.catch(err=> console.log(err))
+
+3. async await
+
+async function fetchOrderData(){
+  try{
+    const user = await getUser(id);
+    const orders = await getOrders(user.id);
+    const details = await getDetails(orders[0].id);
+    console.log(details)
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
+# 66. Node js Core modules
+
+  1. path
+  2. http
+  3. fs
+  4. crypto
+  5. stream
+  6. Events
+  7. zlib
+  8. os
+
+
+# 67. fs package
+
+  1. Reading file data
+  2. writing file data
+  3. stream for read large data into chunks (streaming platforms)
+  4. create read stream 
+  5. types of stream
+    1. create read stream
+    2. create write stream
+    3. duplex stream -> read/write
+    4. tranform stream -> read, write and update
+     
+
+const { Duplex, Tranform} = require("stream")
+
+// read and write
+const duplex = new Duplex({
+  write(chunk, encoding, cb) {
+    console.log("writing", chunk);
+    cb()
+  },
+  read(size) {
+
+  }
+})
+
+// read, write and update
+const tranform = new Transform({
+  write(chunk, encoding, cb) {
+    chunk = chunk.toUpperCase();
+    console.log("writing", chunk);
+    cb()
+  },
+
+})
+
+
+# 68. path
+
+  to handle file paths properly
+
+  const path  = require("path");
+
+
+
+# 69. events 
+
+  const EventEmitter = require("events");
+
+  const event = new EventEmitter();
+
+  event.on("notify",(data)=>{
+    console.log("data")
+  })
+
+  event.emit("notify","Hello node")
+
+
+# 70. os and clusterning
+
+  1. clustering means running process with same code
+  2. No auto scaling
+  3. Manual scale  using kubernetes, PM2
+  4. PM2 
+    1. monitors all process
+    2. check helth of process
+    3. If any one fail restart process
+    4. load incease add new process
+    5. Load decrease remove process
+
+  const os = require("os");
+  const cluster = require("cluster");
+  const http = require("http");
+  const express = require("express");
+
+
+  if(cluster.isMaster){
+
+    const cpus = os.cpus().length;
+
+    for(let i=0;i<cpus;i++){
+      cluster.fork()
+    }
+  }
+  else{
+    const app = express();
+
+    app.listen(3000,()=>{
+      connsole.log(process.pid)
+    })
+  }
+
+
