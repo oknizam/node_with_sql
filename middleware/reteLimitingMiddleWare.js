@@ -50,7 +50,7 @@ async function rateLimitingSlidingWindow(req, res, next) {
 
     slideMap[ip] = slideMap[ip].filter((timestamp) => currentTime - timestamp < WINDOW_TIME);
 
-    if (slideMap[ip] > LIMIT) {
+    if (slideMap[ip] >= LIMIT) {
       return res.status(429).json({ message: "Too many request" })
     }
 

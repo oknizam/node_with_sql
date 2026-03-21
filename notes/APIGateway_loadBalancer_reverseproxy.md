@@ -43,3 +43,24 @@
 
 
 ![alt text](../assets/APIGateway_LB_reverseProxy.png)
+
+
+# Implement prox middleware
+
+  package name : http-proxy-middleware
+
+  1. This will be applied at routing
+
+    we have diffrent services 
+
+    1. order service
+    2. notification service
+    3. payment service
+
+    syntax : app.use("/users", createProxyMiddleWare({
+      target:"http://localhost:3001",
+      changeOrigin:true
+    }))
+
+
+  2. changeOrigin : changes host header to match target server
