@@ -1,6 +1,7 @@
 const express = require("express");
 const orderRoute = require("./routes/order.route");
 const { logs } = require("./middleware/logsMiddleWare");
+const { rateLimitingFixedWindow, rateLimitingSlidingWindow } = require("./middleware/reteLimitingMiddleWare");
 const app = express();
 
 const PORT = 3000;
@@ -8,7 +9,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(logs);
 
-app.use("/orders", orderRoute);
+app.use("/orders", rateLimitingSlidingWindow, orderRoute);
 
 app.get("/dummyData", (req, res) => {
   const response = {
