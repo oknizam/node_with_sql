@@ -952,3 +952,15 @@ const tranform = new Transform({
   }
 
 
+
+# 71. logging monitors
+
+  1. kanban -> similir to jira , maintaining task with status ("inprogress","done") 
+  2. datadog -> cloud monitoring ssytem for logs
+  3. Aws cloud watch -> cloud monitoring ssytem for logs
+
+
+# 72. Waterfall approach
+
+  1. linear approach
+  2. requirement , design, developement, testing, deployemnt is fully completed before moving to next
