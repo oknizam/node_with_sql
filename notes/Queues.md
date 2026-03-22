@@ -100,6 +100,15 @@
       1. It uses exchange to notify queues
       2. Queues will pick all messages form excahnge
       3. send to workers
+      4. how FAAnOut work 
+      5. let's say three services to handle notification
+
+        1. Email service
+        2. sms service
+        3. In app notification
+
+      6. when your payment is success we need to notify throgh email, sms and InAPP
+      7. Then Faanout comes
 
       ![alt text](image-23.png)
 
@@ -107,6 +116,13 @@
 
       1. Here exchange will notify queue 
       2. Queues will pick selective messages form excahnge
+      3. let's take an exmaple of 
+        1. signup - email servie, 
+        2. some alerts notification - inappservice, 
+        3. offer notification - smsservice
+
+      4. In this case exchange will distribute signup messge tio signup queue, alert notification for app queue
+      and offer notification in sms queue
 
       ![alt text](image-24.png)
 
@@ -128,6 +144,9 @@
 
       ![alt text](image-26.png)
 
+# important
+
+with queue latency of an task will be increased, but performce will also be incresed
 
 
 

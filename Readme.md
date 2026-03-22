@@ -973,3 +973,7 @@ const tranform = new Transform({
   3. Using pub/sub , event
   4. web socket
   5. API gateways
+
+# 74. latency
+
+  Latency time it is taken to go for request from client to server and get response back
