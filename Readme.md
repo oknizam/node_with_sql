@@ -964,3 +964,12 @@ const tranform = new Transform({
 
   1. linear approach
   2. requirement , design, developement, testing, deployemnt is fully completed before moving to next
+
+
+# 73. Ways to communicate with microservices
+
+  1. Using APIs
+  2. Using Queues
+  3. Using pub/sub , event
+  4. web socket
+  5. API gateways
