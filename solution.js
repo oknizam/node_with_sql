@@ -116,3 +116,13 @@ function estimateDeliveryTime(packagesInput, vehicleCount, speed, capacity) {
 }
 
 // console.log(estimateDeliveryTime(packages, vehicles, speed, capacity))
+
+
+const http = require("http");
+
+http.createServer((_req, res) => {
+  res.writeHead(200, {
+    "Content-Type": "Application/json"
+  });
+  res.end(JSON.stringify({ message: "server is running" }))
+}).listen(3000)

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nizamuddin Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #1e293b, #020617);
+    }
+
+    header h1 {
+      font-size: 60px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 20px;
+      opacity: 0.8;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 16px;
+      transition: 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border: 1px solid #38bdf8;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #334155;
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nizamuddin</h1>
+    <p>Senior Frontend & Full Stack Engineer | React | Node.js</p>
+    <button class="btn" onclick="scrollToSection()">View My Work</button>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I am a passionate Senior Frontend & Full Stack Engineer with 6+ years of experience building scalable and high-performance web applications across frontend and backend using React, TypeScript, Node.js, and modern technologies.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="card skills">
+      <span>React</span>
+      <span>Next.js</span>
+      <span>Angular</span>
+      <span>TypeScript</span>
+      <span>Node.js</span>
+      <span>MongoDB</span>
+      <span>PostgreSQL</span>
+      <span>CSS / Tailwind</span>
+      <span>AWS</span>
+      <span>MySQL</span>
+      <span>CI/CD</span>
+      <span>Kafka</span>
+      <span>Unit Testing</span>
+      <span>Docker</span>
+      <span>Redis</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Scalable E-Commerce Platform</h3>
+        <p>Full-stack application with product management, payments integration, and high-performance APIs using React, Node.js, and MySQL.</p>
+      </div>
+      <div class="card">
+        <h3>AI-Powered Customer Experience Platform</h3>
+        <p>Built an intelligent customer experience system with AI-driven insights, chat automation, and analytics using React, Node.js, Kafka, and Redis.</p>
+      </div>
+      <div class="card">
+        <h3>Microservices Dashboard</h3>
+        <p>Designed a distributed system dashboard with Kafka-based event streaming, Dockerized services, and AWS deployment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: oknizam321@gmail.com</p>
+      <p>LinkedIn: linkedin.com/in/oknizam</p>
+      <p>Phone: 8310406448</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Nizamuddin. Crafted with ❤️</p>
+  </footer>
+
+  <script>
+    function scrollToSection() {
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
