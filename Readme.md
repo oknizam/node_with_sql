@@ -114,13 +114,18 @@ code -> "A1"+ 1byte
 
   ![alt text](<assets/Screenshot 2025-12-22 at 8.33.44 PM.png>)
 
+
+   5. same table join (self join)
+
+    example employees having manegers in same table
+
 # 11. ACID property (acid applied  with transaction, without transaction not fully applied)
 
    1. Atomocity - All operations in a transaction succeed or none do.
 
         START TRANSACTION;
         UPDATE a SET balance = balance - 100 WHERE id = 1;
-        UPDATE b SET balance = balance + 100 WHERE id = 2;
+        UPDATE a SET balance = balance + 100 WHERE id = 2;
         COMMIT;
 
    2. Consistency - A transaction moves the database from one valid state to another. (Ensures data follows rules, constraints, and business logic.)
@@ -977,3 +982,43 @@ const tranform = new Transform({
 # 74. latency
 
   Latency time it is taken to go for request from client to server and get response back
+
+
+# 75. React and angular
+
+  1. we need nodejd to build react / angular
+  2. After build app run using browser js
+
+
+# 76. Why we choose nodejs over other launguge
+
+  1. For web FE we use react and angular which is js, if use nodejs for BE which helpeful easy to achive 
+  2. node has millions of library supports
+  3. webpack , vite (app bundling), babel
+  4. hot reload
+  5. live reload
+  6. JSX
+  7. bundling
+  8. Transpiling - babel , convert code into browser understing code
+
+
+# 77. When not use nodejs
+
+  1. CPU intensive task (image processing, video encoding)
+  2. complex multithreaded system
+  3. Heavy relational DB operations (joins)
+  4. memory heavy application
+
+# 78. Modules
+
+  1. require - synchronous
+  2. import (es6) -> asynchronous
+  3. default behaviour is require
+  4. if we want to use import / export define type: "module" in package.json
+    {
+       type: "module"
+    }
+
+
+
+
