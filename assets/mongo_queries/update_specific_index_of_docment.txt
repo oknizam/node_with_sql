@@ -1,0 +1,13 @@
+
+db.employees.insertMany([
+   {_id: 1, name: 'Clark', dept: 'Sales', numbers:[1,2,3] },
+  {_id: 2, name: 'Dave', dept: 'Accounting', maneger_id:2 },
+  {_id: 3, name: 'Ava', dept: 'Sales', maneger_id:3 }
+]);
+
+
+
+db.employees.updateOne(
+  {_id:1},
+  {$set : {"numbers.1":20 }}
+);

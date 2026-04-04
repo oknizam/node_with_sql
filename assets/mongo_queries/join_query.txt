@@ -1,0 +1,27 @@
+
+db.employees.insertMany([
+  {_id: 1, name: 'Clark', dept: 'Sales', maneger_id:1 },
+  {_id: 2, name: 'Dave', dept: 'Accounting', maneger_id:2 },
+  {_id: 3, name: 'Ava', dept: 'Sales', maneger_id:3 }
+]);
+
+
+db.manegers.insertMany([
+  {_id: 1, name: 'A', dept: 'Sales' },
+  {_id: 2, name: 'B', dept: 'Accounting' },
+  {_id: 3, name: 'C', dept: 'Sales' }
+]);
+
+db.employee.aggregate([
+
+  {
+    $lookup:{
+      from:"manegers",
+      localField:"maneger_id",
+      foreignField:"_id"
+      as:"manegerdata"
+    }
+  }
+
+
+])
