@@ -61,3 +61,28 @@ db.employees.aggregate([
     }
   
   ])
+
+
+9. match with aggregate
+
+db.employees.aggregate([
+
+  {$match:{status:"completed"}},
+  {$group:{_id:null,maxSalary:{$max:"$salary"}}}
+
+])
+
+10. join lookup
+
+db.users.aggregate([
+
+  {
+    $lookup:{
+      from:"orders",
+      localField:"_id",
+      foreignField:"userId",
+      as:"userDetails"
+    }
+  }
+
+])
